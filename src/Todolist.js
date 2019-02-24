@@ -32,6 +32,7 @@ export default class Todolist extends Component {
                 <ul>{this.makeLine(1)}</ul>
                 <ul>{this.makeLine(2)}</ul>
                 <ul>{this.makeLine(3)}</ul>
+                <ul>{this.makeLine(4)}</ul>
             </div>
         );
     }
