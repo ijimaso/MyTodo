@@ -1,12 +1,13 @@
 import React from "react";
 import "./css/Todo.css";
 
-//react-bootstrapからcardコンポーネントをインポート
+//react-bootstrapからCardコンポーネントをインポート
 import Card from "react-bootstrap/Card";
 
-//fuctional component
+//Fuctional Component
 //props(親から渡された変数)を受け取って表示
 //fuctional componentはpropsを指定するとき，thisがいらない
+//react-bootstrapのCardコンポーネントで装飾
 const Todo = props => {
     return (
         <div className="Todo">
