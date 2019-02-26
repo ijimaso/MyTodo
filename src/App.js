@@ -43,6 +43,24 @@ export default class App extends Component {
           date: "2019/02/28",
           title: "美容院に行く",
           content: "髪を切る"
+        },
+        {
+          id: 7,
+          date: "2019/02/28",
+          title: "美容院に行く",
+          content: "髪を切る"
+        },
+        {
+          id: 8,
+          date: "2019/02/28",
+          title: "美容院に行く",
+          content: "髪を切る"
+        },
+        {
+          id: 9,
+          date: "2019/02/28",
+          title: "美容院に行く",
+          content: "髪を切る"
         }
       ]
     };
