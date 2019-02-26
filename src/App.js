@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Todolist from "./Todolist";
+import InputForm from "./InputForm";
 import "./css/App.css";
+
 
 export default class App extends Component {
 
@@ -72,6 +74,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <h1>Todo App</h1>
+        <InputForm />
         <Todolist todos={this.state.todos} />
       </div>
     );
