@@ -6,9 +6,9 @@ import "./css/Todolist.css";
 //Todoコンポーネントをデフォルトのコンポーネントとして，エクスポート
 //親から渡されたデータ(配列や変数など)をpropsで受け取って使う
 export default class Todolist extends Component {
-    // 一行目の個数を指定して，Todoを取り出すメソッド
+    // 一行目の個数を指定して，Todoを並べるメソッド
     arrangeTodos(lineNumber) {
-        // filterメソッドで条件を満たすTodosを取り出す
+        // filterメソッドで3列になるようにTodosを取り出す
         const onelineTodos = this.props.todos.filter(todo => {
             return (
                 todo.id >= 3 * lineNumber - 2 && todo.id <= lineNumber * 3
@@ -26,6 +26,7 @@ export default class Todolist extends Component {
     }
 
     //renderメソッド→表示する
+    //arrangeTodosメソッドを呼び出し
     render() {
         return (
             <div className="Todolist">
