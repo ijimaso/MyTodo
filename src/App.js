@@ -3,7 +3,8 @@ import Todolist from "./Todolist";
 import "./css/App.css";
 
 export default class App extends Component {
-  //データ
+
+  //データを設定
   constructor() {
     super();
     this.state = {
