@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button'
 //fuctional componentはpropsを指定するとき，thisがいらない
 //react-bootstrapのCardコンポーネントで装飾
 const Todo = props => {
-    const check = "完了!"
+    const check = props.check ? "もとに戻す":"完了"
 
     return (
         <div className="Todo">
