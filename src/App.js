@@ -65,6 +65,8 @@ export default class App extends Component {
     event.target.content.value = "";
   }
 
+
+
   // レンダリング表示
   render() {
     return (
