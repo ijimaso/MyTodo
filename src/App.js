@@ -39,8 +39,8 @@ export default class App extends Component {
     }
   }
 
-  // フォームに入力された値を取り出す関数
-  handleSubmit(event) {
+  // フォームに入力された値から新しいTodoを作成するメソッド
+  makeTodo(event) {
     event.preventDefault();
     // e.target.(name属性).valueでフォームの中身を取り出す
     const title = event.target.title.value;
@@ -70,7 +70,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <h1>Todo App</h1>
-        <InputForm handleSubmit={this.handleSubmit.bind(this)} />
+        <InputForm makeTodo={this.makeTodo.bind(this)} />
         <Todolist todos={this.state.todos} />
       </div>
     );

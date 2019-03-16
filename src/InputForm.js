@@ -17,7 +17,7 @@ export default class InputForm extends Component {
                     <Row>
                         <Col></Col>
                         <Col md={6}>
-                            <Form onSubmit={this.props.handleSubmit}>
+                            <Form onSubmit={this.props.makeTodo}>
                                 <Form.Group controlId="formBasicEmail">
                                     <Form.Label id="formTitle">タイトル</Form.Label>
                                     <Form.Control type="title" placeholder="タイトル" name="title"/>
