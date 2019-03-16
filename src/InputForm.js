@@ -17,14 +17,14 @@ export default class InputForm extends Component {
                     <Row>
                         <Col></Col>
                         <Col md={6}>
-                            <Form>
+                            <Form onSubmit={this.props.handleSubmit}>
                                 <Form.Group controlId="formBasicEmail">
                                     <Form.Label id="formTitle">タイトル</Form.Label>
-                                    <Form.Control type="title" placeholder="タイトル" />
+                                    <Form.Control type="title" placeholder="タイトル" name="title"/>
                                 </Form.Group>
                                 <Form.Group controlId="exampleForm.ControlTextarea1">
                                     <Form.Label>内容</Form.Label>
-                                    <Form.Control as="textarea" rows="3" />
+                                    <Form.Control as="textarea" rows="3" name="content"/>
                                 </Form.Group>
                                 <Button variant="primary" type="create" id="createButton">
                                     作成

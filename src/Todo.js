@@ -16,6 +16,7 @@ const Todo = props => {
         <div className="Todo">
             <Card style={{ width: "250px" }}>
                 <Card.Body>
+                    <Card.Title>{props.id}</Card.Title>
                     <Card.Title>{props.date}</Card.Title>
                     <Card.Title>{props.title}</Card.Title>
                     <Card.Text>{props.content}</Card.Text>
