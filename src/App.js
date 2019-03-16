@@ -40,11 +40,11 @@ export default class App extends Component {
   }
 
   // フォームに入力された値を取り出す関数
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
     // e.target.(name属性).valueでフォームの中身を取り出す
-    const title = e.target.title.value;
-    const content = e.target.content.value;
+    const title = event.target.title.value;
+    const content = event.target.content.value;
 
     // constructorから値を取り出し
     const todos = this.state.todos.slice() //全部の要素を新しい配列としてコピー
@@ -61,8 +61,8 @@ export default class App extends Component {
     this.setState({ todos })
     this.setState({ countTodo: countTodo + 1 })
 
-    e.target.title.value = "";
-    e.target.content.value = "";
+    event.target.title.value = "";
+    event.target.content.value = "";
   }
 
   // レンダリング表示
