@@ -26,7 +26,7 @@ export default class InputForm extends Component {
                                     <Form.Label>内容</Form.Label>
                                     <Form.Control as="textarea" rows="3" name="content"/>
                                 </Form.Group>
-                                <Button variant="primary" type="create" id="createButton">
+                                <Button variant="success" type="create" id="createButton">
                                     作成
                                 </Button>
                             </Form>
