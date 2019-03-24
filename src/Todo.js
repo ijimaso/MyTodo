@@ -10,17 +10,26 @@ import Button from 'react-bootstrap/Button'
 //fuctional componentはpropsを指定するとき，thisがいらない
 //react-bootstrapのCardコンポーネントで装飾
 const Todo = props => {
-    const check = props.check ? "もとに戻す":"完了"
+    const doneClassName = props.done ? "done" : "undone";
+    const done = props.done ? "もとに戻す" : "完了";
+    const buttonClassName = props.done ? "outline-danger":"danger";
 
     return (
-        <div className="Todo">
+        <div className={doneClassName}>
             <Card style={{ width: "250px" }}>
                 <Card.Body>
-                    <Card.Title>{props.id}</Card.Title>
-                    <Card.Title>{props.date}</Card.Title>
-                    <Card.Title>{props.title}</Card.Title>
-                    <Card.Text>{props.content}</Card.Text>
-                    <Button variant="danger">{check}</Button>
+                    {/* <Card.Title className={doneClassName}>{props.id}</Card.Title> */}
+                    <Card.Title className={doneClassName}>{props.date}</Card.Title>
+                    <Card.Title className={doneClassName}>{props.title}</Card.Title>
+                    <Card.Text className={doneClassName}>{props.content}</Card.Text>
+                    <Button variant={buttonClassName} onClick={(event) => {
+                        event.preventDefault();
+                        props.switchStatus(props);
+                    }}>{done}</Button>
+                    <Button variant="info" onClick={(event) => {
+                        event.preventDefault();
+                        props.deleteTodo(props);
+                    }}>削除</Button>
                 </Card.Body>
             </Card>
         </div>

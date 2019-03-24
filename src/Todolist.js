@@ -18,7 +18,7 @@ export default class Todolist extends Component {
         //取り出したTodos(配列)を使って，それぞれのTodoに対して，Todoコンポーネントを呼び出す
         //{...eactTodo}で下の階層にプロパティをまとめて渡せる
         const eachTodos = onelineTodos.map(onelineTodo => {
-            return <Todo key={onelineTodo.id} {...onelineTodo} />;
+            return <Todo key={onelineTodo.id} {...onelineTodo} switchStatus={this.props.switchStatus} deleteTodo={this.props.deleteTodo}/>;
         });
 
         //作り出されたTodoコンポーネントを戻り値として返す
