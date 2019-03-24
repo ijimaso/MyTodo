@@ -15,21 +15,21 @@ export default class App extends Component {
         date: "2019/02/24",
         title: "研究室に行く",
         content: "スライド修正",
-        check: false
+        done: false
       },
       {
         id: 2,
         date: "2019/02/27",
         title: "ゼミ",
         content: "10:30から",
-        check: false
+        done: false
       },
       {
         id: 3,
         date: "2019/02/28",
         title: "美容院に行く",
         content: "髪を切る",
-        check: true
+        done: false
       }
     ]
 
@@ -42,6 +42,7 @@ export default class App extends Component {
   // フォームに入力された値から新しいTodoを作成するメソッド
   makeTodo(event) {
     event.preventDefault();
+
     // e.target.(name属性).valueでフォームの中身を取り出す
     const title = event.target.title.value;
     const content = event.target.content.value;
@@ -54,7 +55,7 @@ export default class App extends Component {
       id: countTodo,
       title: title,
       content: content,
-      check: false
+      done: false
     });
 
     //setStateでstateの更新を行う
@@ -65,7 +66,29 @@ export default class App extends Component {
     event.target.content.value = "";
   }
 
+  //完了/元に戻すボタンを押すと切り替わるメソッド
+  switchStatus(clickTodo) {
+    const todos = this.state.todos.slice(); //todos配列をコピー
+    const selectedIndex = todos.findIndex(todo => {
+      return todo.id === clickTodo.id;
+    })
+    const setTodo = todos[selectedIndex]
+    setTodo.done = !setTodo.done;
+    todos[selectedIndex] = setTodo;
 
+    // 値を更新
+    this.setState({ todos:todos })
+  }
+
+  // todoを削除するメソッド
+  deleteTodo(clickTodo) {
+    const todos = this.state.todos.slice();
+    const deletedTodos = todos.filter(todo => {
+      return todo.id !== clickTodo.id
+    })
+
+    this.setState({ todos:deletedTodos })
+  }
 
   // レンダリング表示
   render() {
@@ -73,7 +96,7 @@ export default class App extends Component {
       <div className="App">
         <h1>Todo App</h1>
         <InputForm makeTodo={this.makeTodo.bind(this)} />
-        <Todolist todos={this.state.todos} />
+        <Todolist todos={this.state.todos} switchStatus={this.switchStatus.bind(this)} deleteTodo={this.deleteTodo.bind(this)} />
       </div>
     );
   }
