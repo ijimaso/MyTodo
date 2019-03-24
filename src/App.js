@@ -20,20 +20,8 @@ export default class App extends Component {
     const todos = [
       {
         id: 1,
-        title: "研究室に行く",
-        content: "スライド修正",
-        done: false
-      },
-      {
-        id: 2,
-        title: "ゼミ",
-        content: "10:30から",
-        done: false
-      },
-      {
-        id: 3,
-        title: "美容院に行く",
-        content: "髪を切る",
+        title: "sample",
+        content: "sample",
         done: false
       }
     ]
