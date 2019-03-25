@@ -1,0 +1,15 @@
+.count {
+    height: 70px;
+    background-color: #F5F5F5;
+    padding-top:3px;
+    margin-top: -10px;
+}
+
+.eachbadge {
+    display: inline-block;
+}
+
+#done::after {
+    white-space: pre-wrap;
+    content :"  ";
+}
