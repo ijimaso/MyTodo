@@ -143,7 +143,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1 id="title">Todo App</h1>
+        <h1 id="title">MyTodo</h1>
         <Count doneTodo={this.state.doneTodo} undoneTodo={this.state.undoneTodo} />
         <InputForm makeTodo={this.makeTodo.bind(this)} />
         <Todolist todos={this.state.todos} switchStatus={this.switchStatus.bind(this)} deleteTodo={this.deleteTodo.bind(this)} />
