@@ -41,6 +41,6 @@ export default class InputForm extends Component {
                     </Row>
                 </Container>
             </div>
-        )
+        );
     }
 }
