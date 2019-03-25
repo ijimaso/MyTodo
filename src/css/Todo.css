@@ -5,3 +5,7 @@
 .undone{
     color: #000000;
 }
+
+#doneButton{
+    margin-right: 10%;
+}
