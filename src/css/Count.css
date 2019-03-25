@@ -7,9 +7,5 @@
 
 .eachbadge {
     display: inline-block;
-}
-
-#done::after {
-    white-space: pre-wrap;
-    content :"  ";
+    margin-left: 3%;
 }
