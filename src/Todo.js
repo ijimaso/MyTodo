@@ -18,7 +18,8 @@ import Button from 'react-bootstrap/Button';
  */
 const Todo = props => {
     const doneClassName = props.done ? "done" : "undone";
-    const done = props.done ? "未完了" : "完了";
+    const done = props.done ? "Undone" : "Done";
+    const buttonClassName = props.done ? "warning" : "info";
 
     return (
         <div className={doneClassName}>
@@ -26,14 +27,14 @@ const Todo = props => {
                 <Card.Body>
                     <Card.Title className={doneClassName}>{props.title}</Card.Title>
                     <Card.Text className={doneClassName}>{props.content}</Card.Text>
-                    <Button variant="info" onClick={(event) => {
+                    <Button variant={buttonClassName} onClick={(event) => {
                         event.preventDefault();
                         props.switchStatus(props);
                     }} id="doneButton">{done}</Button>
                     <Button variant="danger" onClick={(event) => {
                         event.preventDefault();
                         props.deleteTodo(props);
-                    }}>削除</Button>
+                    }}>Delete</Button>
                 </Card.Body>
             </Card>
         </div>
