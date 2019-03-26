@@ -1,6 +1,9 @@
-.Todolist ul {
+.Todolist ul li {
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: space-around;
   justify-content: space-around;
+  margin-bottom: 20px;
+  list-style: none;
 }
+

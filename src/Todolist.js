@@ -20,7 +20,6 @@ export default class Todolist extends Component {
      * @memberof Todolist
      */
     arrangeTodos(lineNumber) {
-
         // filterメソッドで3列になるようにTodosを取り出す
         const onelineTodos = this.props.todos.filter(todo => {
             return (
@@ -37,16 +36,16 @@ export default class Todolist extends Component {
         return eachTodos;
     }
 
-
     render() {
+        const numbers = [];
+        const lineNumber = 100;
+        for (let i = 1; i <= lineNumber; i++) {
+            numbers.push(<li key={i}>{this.arrangeTodos(i)}</li>)
+        }
+
         return (
             <div className="Todolist">
-                <ul>{this.arrangeTodos(1)}</ul>
-                <ul>{this.arrangeTodos(2)}</ul>
-                <ul>{this.arrangeTodos(3)}</ul>
-                <ul>{this.arrangeTodos(4)}</ul>
-                <ul>{this.arrangeTodos(5)}</ul>
-                <ul>{this.arrangeTodos(6)}</ul>
+                <ul>{numbers}</ul>
             </div>
         );
     }
