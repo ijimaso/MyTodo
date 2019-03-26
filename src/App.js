@@ -71,13 +71,13 @@ export default class App extends Component {
       });
       undoneTodo += 1;
     } else if (title === "" && content !== "") {
-      modalMessage = "Title";
+      modalMessage = "title";
       this.modalShow();
     } else if (title !== "" && content === "") {
-      modalMessage = "Content";
+      modalMessage = "content";
       this.modalShow();
     } else {
-      modalMessage = "both of Title and Content";
+      modalMessage = "both of title and content";
       this.modalShow();
     }
 
