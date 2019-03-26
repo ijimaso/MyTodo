@@ -1,6 +1,7 @@
 # MyTodo
 This is a light Todo App.<br>
 You can create a new Todo with Form.<br>
+You need to enter both of todo's title and content.<br>
 There are Done/Undone Button and delete Button in each Todos.<br>
 This App has a function counting a total number of Done/Undone Todos.
 
