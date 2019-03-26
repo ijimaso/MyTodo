@@ -46,7 +46,7 @@ export default class InputForm extends Component {
                     <Modal.Header closeButton>
                         <Modal.Title>Error</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>{`Please enter Todo's ${this.props.modalMessage}!!`}</Modal.Body>
+                    <Modal.Body>{`Please enter a new Todo's ${this.props.modalMessage}!!`}</Modal.Body>
                     <Modal.Footer>
                         <Button variant="primary" onClick={this.props.modalClose}>
                             OK!
