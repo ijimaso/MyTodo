@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Modal from 'react-bootstrap/Modal';
 
 /**
  * InputFormコンポーネント
@@ -16,6 +17,7 @@ import Col from 'react-bootstrap/Col';
  * @extends {Component}
  */
 export default class InputForm extends Component {
+
     render() {
         return (
             <div className="InputForm">
@@ -40,6 +42,17 @@ export default class InputForm extends Component {
                         <Col />
                     </Row>
                 </Container>
+                <Modal show={this.props.show}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Error</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>{`Please enter Todo's ${this.props.modalMessage}!!`}</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={this.props.modalClose}>
+                            OK!
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         );
     }

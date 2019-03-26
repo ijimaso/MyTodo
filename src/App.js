@@ -20,17 +20,26 @@ export default class App extends Component {
     super();
     const todos = [];
     const todosLength = todos.length;
+    const modalMessage = "";
 
     //状態(state)を保存
     this.state = {
       todos: todos,
       doneTodo: todosLength,
       undoneTodo: todosLength,
+      modalMessage: modalMessage,
+      show: false,
       countTodo: todosLength + 1
     };
   }
 
+  modalClose() {
+    this.setState({ show: false });
+  }
 
+  modalShow() {
+    this.setState({ show: true });
+  }
 
   /**
    * フォームに入力された新しいTodoを作成するメソッド
@@ -47,20 +56,36 @@ export default class App extends Component {
 
     // constructorから値を取り出し
     const todos = this.state.todos.slice(); //全部の要素を新しい配列としてコピー
-    const undoneTodo = this.state.undoneTodo;
+    let undoneTodo = this.state.undoneTodo;
+    let modalMessage = this.state.modalMessage;
     const countTodo = this.state.countTodo;
 
-    // 作成したTodoを配列todosに追加
-    todos.push({
-      id: countTodo,
-      title: title,
-      content: content,
-      done: false
-    });
+    // titleとcontentの両方の記入が必要
+    if (title !== "" && content !== "") {
+      // 作成したTodoを配列todosに追加
+      todos.push({
+        id: countTodo,
+        title: title,
+        content: content,
+        done: false
+      });
+      undoneTodo += 1;
+    } else if (title === "" && content !== "") {
+      modalMessage = "Title";
+      this.modalShow();
+    } else if (title !== "" && content === "") {
+      modalMessage = "Content";
+      this.modalShow();
+    } else {
+      modalMessage = "both of Title and Content";
+      this.modalShow();
+    }
+
 
     // setStateでstateの更新を行う
     this.setState({ todos });
-    this.setState({ undoneTodo: undoneTodo + 1 });
+    this.setState({ undoneTodo: undoneTodo });
+    this.setState({ modalMessage: modalMessage });
     this.setState({ countTodo: countTodo + 1 });
 
     // フォームの中身を空に再設定
@@ -145,7 +170,7 @@ export default class App extends Component {
       <div className="App">
         <h1 id="title">MyTodo</h1>
         <Count doneTodo={this.state.doneTodo} undoneTodo={this.state.undoneTodo} />
-        <InputForm makeTodo={this.makeTodo.bind(this)} />
+        <InputForm show={this.state.show} modalMessage={this.state.modalMessage} modalClose={this.modalClose.bind(this)} modalShow={this.modalShow.bind(this)} makeTodo={this.makeTodo.bind(this)} />
         <Todolist todos={this.state.todos} switchStatus={this.switchStatus.bind(this)} deleteTodo={this.deleteTodo.bind(this)} />
       </div>
     );
