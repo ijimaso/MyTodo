@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./css/Count.css"
+import "./css/Count.css";
 
-import Badge from 'react-bootstrap/Badge'
+import Badge from 'react-bootstrap/Badge';
 
 export default class Count extends Component {
     render() {
