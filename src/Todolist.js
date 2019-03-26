@@ -42,11 +42,11 @@ export default class Todolist extends Component {
         return (
             <div className="Todolist">
                 <ul>{this.arrangeTodos(1)}</ul>
-                <ul>{this.arrangeTodos(2)}</ul>
-                <ul>{this.arrangeTodos(3)}</ul>
-                <ul>{this.arrangeTodos(4)}</ul>
-                <ul>{this.arrangeTodos(5)}</ul>
-                <ul>{this.arrangeTodos(6)}</ul>
+                {/* <ul>{this.arrangeTodos(2)}</ul> */}
+                {/* <ul>{this.arrangeTodos(3)}</ul> */}
+                {/* <ul>{this.arrangeTodos(4)}</ul> */}
+                {/* <ul>{this.arrangeTodos(5)}</ul> */}
+                {/* <ul>{this.arrangeTodos(6)}</ul> */}
             </div>
         );
     }
