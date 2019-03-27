@@ -37,15 +37,15 @@ export default class Todolist extends Component {
     }
 
     render() {
-        const numbers = [];
+        const todolists = [];
         const lineNumber = 100;
         for (let i = 1; i <= lineNumber; i++) {
-            numbers.push(<li key={i}>{this.arrangeTodos(i)}</li>)
+            todolists.push(<li key={i}>{this.arrangeTodos(i)}</li>)
         }
 
         return (
             <div className="Todolist">
-                <ul>{numbers}</ul>
+                <ul>{todolists}</ul>
             </div>
         );
     }
