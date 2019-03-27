@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Count from "./Count";
 import InputForm from "./InputForm";
 import Todolist from "./Todolist";
+import ErrorModal from "./ErrorModal";
 import "./css/App.css";
 
 
@@ -75,8 +76,13 @@ export default class App extends Component {
       });
 
       //値を更新
+      this.setState({ todos: todos });
       this.setState({ countTodo: countTodo });
       this.setState({ undoneTodo: undoneTodo });
+
+      // フォームの中身を空に再設定
+      event.target.title.value = "";
+      event.target.content.value = "";
     } else if (title === "" && content !== "") {
       modalMessage = "title";
       this.modalShow();
@@ -88,13 +94,8 @@ export default class App extends Component {
       this.modalShow();
     }
 
-    // setStateでstateの更新を行う
-    this.setState({ todos: todos });
     this.setState({ modalMessage: modalMessage });
 
-    // フォームの中身を空に再設定
-    event.target.title.value = "";
-    event.target.content.value = "";
   }
 
   /**
@@ -129,7 +130,6 @@ export default class App extends Component {
       doneTodo -= 1;
     }
 
-    // 値を更新
     this.setState({ todos: todos });
     this.setState({ doneTodo: doneTodo });
     this.setState({ undoneTodo: undoneTodo });
@@ -174,7 +174,8 @@ export default class App extends Component {
       <div className="App">
         <h1 id="title">MyTodo</h1>
         <Count doneTodo={this.state.doneTodo} undoneTodo={this.state.undoneTodo} />
-        <InputForm show={this.state.show} modalMessage={this.state.modalMessage} modalShow={this.modalShow.bind(this)} modalClose={this.modalClose.bind(this)} makeTodo={this.makeTodo.bind(this)} />
+        <InputForm makeTodo={this.makeTodo.bind(this)} />
+        <ErrorModal show={this.state.show} modalMessage={this.state.modalMessage} modalShow={this.modalShow.bind(this)} modalClose={this.modalClose.bind(this)} />
         <Todolist todos={this.state.todos} switchStatus={this.switchStatus.bind(this)} deleteTodo={this.deleteTodo.bind(this)} />
       </div>
     );
