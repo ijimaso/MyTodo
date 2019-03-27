@@ -29,16 +29,17 @@ export default class App extends Component {
       undoneTodo: todosLength,
       modalMessage: modalMessage,
       show: false,
-      countTodo: todosLength + 1
+      countTodo: todosLength
     };
+  }
+
+  //modalを表示/非表示する関数
+  modalShow() {
+    this.setState({ show: true });
   }
 
   modalClose() {
     this.setState({ show: false });
-  }
-
-  modalShow() {
-    this.setState({ show: true });
   }
 
   /**
@@ -58,10 +59,13 @@ export default class App extends Component {
     const todos = this.state.todos.slice(); //全部の要素を新しい配列としてコピー
     let undoneTodo = this.state.undoneTodo;
     let modalMessage = this.state.modalMessage;
-    const countTodo = this.state.countTodo;
+    let countTodo = this.state.countTodo;
 
     // titleとcontentの両方の記入が必要
     if (title !== "" && content !== "") {
+      countTodo += 1;
+      undoneTodo += 1;
+
       // 作成したTodoを配列todosに追加
       todos.push({
         id: countTodo,
@@ -69,7 +73,10 @@ export default class App extends Component {
         content: content,
         done: false
       });
-      undoneTodo += 1;
+
+      //値を更新
+      this.setState({ countTodo: countTodo });
+      this.setState({ undoneTodo: undoneTodo });
     } else if (title === "" && content !== "") {
       modalMessage = "title";
       this.modalShow();
@@ -81,12 +88,9 @@ export default class App extends Component {
       this.modalShow();
     }
 
-
     // setStateでstateの更新を行う
-    this.setState({ todos });
-    this.setState({ undoneTodo: undoneTodo });
+    this.setState({ todos: todos });
     this.setState({ modalMessage: modalMessage });
-    this.setState({ countTodo: countTodo + 1 });
 
     // フォームの中身を空に再設定
     event.target.title.value = "";
@@ -170,7 +174,7 @@ export default class App extends Component {
       <div className="App">
         <h1 id="title">MyTodo</h1>
         <Count doneTodo={this.state.doneTodo} undoneTodo={this.state.undoneTodo} />
-        <InputForm show={this.state.show} modalMessage={this.state.modalMessage} modalClose={this.modalClose.bind(this)} modalShow={this.modalShow.bind(this)} makeTodo={this.makeTodo.bind(this)} />
+        <InputForm show={this.state.show} modalMessage={this.state.modalMessage} modalShow={this.modalShow.bind(this)} modalClose={this.modalClose.bind(this)} makeTodo={this.makeTodo.bind(this)} />
         <Todolist todos={this.state.todos} switchStatus={this.switchStatus.bind(this)} deleteTodo={this.deleteTodo.bind(this)} />
       </div>
     );
