@@ -38,8 +38,8 @@ export default class Todolist extends Component {
 
     render() {
         const todolists = [];
-        const lineNumber = 100;
-        for (let i = 1; i <= lineNumber; i++) {
+        const lines = 100;
+        for (let i = 1; i <= lines; i++) {
             todolists.push(<li key={i}>{this.arrangeTodos(i)}</li>)
         }
 
