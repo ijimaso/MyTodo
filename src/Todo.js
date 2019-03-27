@@ -17,16 +17,16 @@ import Button from 'react-bootstrap/Button';
  * @returns
  */
 const Todo = props => {
-    const doneClassName = props.done ? "done" : "undone";
-    const done = props.done ? "Undone" : "Done";
+    const doneClassName = props.done? "done" : "undone";
     const buttonClassName = props.done ? "warning" : "info";
+    const done = props.done ? "Undone" : "Done";
 
     return (
         <div className={doneClassName}>
             <Card style={{ width: "250px" }}>
                 <Card.Body>
-                    <Card.Title className={doneClassName}>{props.title}</Card.Title>
-                    <Card.Text className={doneClassName}>{props.content}</Card.Text>
+                    <Card.Title>{props.title}</Card.Title>
+                    <Card.Text>{props.content}</Card.Text>
                     <Button variant={buttonClassName} onClick={(event) => {
                         event.preventDefault();
                         props.switchStatus(props);
