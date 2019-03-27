@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./css/InputForm.css";
 
 // react-bootstrapからButton,Form,Container,Row,Colコンポーネントをインポート
@@ -7,7 +7,6 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Modal from 'react-bootstrap/Modal';
 
 /**
  * InputFormコンポーネント
@@ -16,44 +15,32 @@ import Modal from 'react-bootstrap/Modal';
  * @class InputForm
  * @extends {Component}
  */
-export default class InputForm extends Component {
-
-    render() {
-        return (
-            <div className="InputForm">
-                <Container>
-                    <Row>
-                        <Col />
-                        <Col md={6}>
-                            <Form onSubmit={this.props.makeTodo}>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Label id="formTitle">Title</Form.Label>
-                                    <Form.Control type="title" placeholder="Title" name="title" />
-                                </Form.Group>
-                                <Form.Group controlId="exampleForm.ControlTextarea1">
-                                    <Form.Label>Content</Form.Label>
-                                    <Form.Control as="textarea" rows="3" name="content" />
-                                </Form.Group>
-                                <Button variant="success" type="create" id="createButton">
-                                    Create
+const InputForm = props => {
+    return (
+        <div className="InputForm">
+            <Container>
+                <Row>
+                    <Col />
+                    <Col md={6}>
+                        <Form onSubmit={props.makeTodo}>
+                            <Form.Group controlId="formBasicEmail">
+                                <Form.Label id="formTitle">Title</Form.Label>
+                                <Form.Control type="title" placeholder="Title" name="title" />
+                            </Form.Group>
+                            <Form.Group controlId="exampleForm.ControlTextarea1">
+                                <Form.Label>Content</Form.Label>
+                                <Form.Control as="textarea" rows="3" name="content" />
+                            </Form.Group>
+                            <Button variant="success" type="create" id="createButton">
+                                Create
                                 </Button>
-                            </Form>
-                        </Col>
-                        <Col />
-                    </Row>
-                </Container>
-                <Modal show={this.props.show} onHide={this.props.modalClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Error</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>{`Please enter a new Todo's ${this.props.modalMessage}!!`}</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="primary" onClick={this.props.modalClose}>
-                            OK!
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-            </div>
-        );
-    }
+                        </Form>
+                    </Col>
+                    <Col />
+                </Row>
+            </Container>
+        </div>
+    );
 }
+
+export default InputForm;
