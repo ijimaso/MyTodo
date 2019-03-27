@@ -42,7 +42,7 @@ export default class InputForm extends Component {
                         <Col />
                     </Row>
                 </Container>
-                <Modal show={this.props.show}>
+                <Modal show={this.props.show} onHide={this.props.modalClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Error</Modal.Title>
                     </Modal.Header>
