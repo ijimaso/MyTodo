@@ -25,7 +25,6 @@ const Todo = props => {
         <div className={doneClassName}>
             <Card style={{ width: "250px" }}>
                 <Card.Body>
-                    <Card.Title className={doneClassName}>{props.id}</Card.Title>
                     <Card.Title className={doneClassName}>{props.title}</Card.Title>
                     <Card.Text className={doneClassName}>{props.content}</Card.Text>
                     <Button variant={buttonClassName} onClick={(event) => {
