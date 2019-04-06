@@ -1,11 +1,15 @@
-# MyTodo
-This is a light Todo App.<br>
-You can create a new Todo with Form.<br>
-You need to enter both of todo's title and content.<br>
-There are Done/Undone Button and delete Button in each Todos.<br>
-This App has a function counting a total number of Done/Undone Todos.
+# 概要
+簡単なTodoを作成できるTodoアプリです．
 
-# Development Environment
-Language: JavaScript<br>
-Framework: react 16.8.5(create-react-app 2.1.5)<br>
-CSS Framework: react-bootstrap 1.0.0-beta.6
+# 機能一覧
+* Todo作成機能<br>
+* Todo削除機能<br>
+* Todoの完了/未完了を切り替える機能<br>
+* フォームで記入したTodoのタイトルと内容の有無によって，モーダルを表示する機能<br>
+* 完了/未完了のTodoの個数をカウントする機能
+
+# 開発環境
+言語: Node.js v8.15.1<br>
+フレームワーク: react 16.8.5(create-react-app 2.1.5)<br>
+CSSフレームワーク: react-bootstrap 1.0.0-beta.6<br>
+デプロイ: gh-pages 2.0.1
