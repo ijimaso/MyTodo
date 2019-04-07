@@ -22,7 +22,7 @@ const ErrorModal = props => {
                 OK!
                 </Button>
         </Modal.Footer>
-    </Modal>)
-}
+    </Modal>);
+};
 
 export default ErrorModal;

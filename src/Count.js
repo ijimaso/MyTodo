@@ -24,7 +24,7 @@ const Count = props => {
                 </h1>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Count;

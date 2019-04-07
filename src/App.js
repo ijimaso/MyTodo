@@ -34,7 +34,7 @@ export default class App extends Component {
     };
   }
 
-  //modalを表示/非表示する関数
+  //modalを表示/非表示するメソッド
   modalShow() {
     this.setState({ show: true });
   }
@@ -171,13 +171,13 @@ export default class App extends Component {
   // レンダリング
   render() {
     return (
-      <div className="App">
-        <h1 id="title">MyTodo</h1>
-        <Count doneTodo={this.state.doneTodo} undoneTodo={this.state.undoneTodo} />
-        <InputForm makeTodo={this.makeTodo.bind(this)} />
-        <ErrorModal show={this.state.show} modalMessage={this.state.modalMessage} modalShow={this.modalShow.bind(this)} modalClose={this.modalClose.bind(this)} />
-        <Todolist todos={this.state.todos} switchStatus={this.switchStatus.bind(this)} deleteTodo={this.deleteTodo.bind(this)} />
-      </div>
+        <div className="App">
+          <h1 id="title">MyTodo</h1>
+          <Count doneTodo={this.state.doneTodo} undoneTodo={this.state.undoneTodo} />
+          <InputForm makeTodo={this.makeTodo.bind(this)} />
+          <ErrorModal show={this.state.show} modalMessage={this.state.modalMessage} modalShow={this.modalShow.bind(this)} modalClose={this.modalClose.bind(this)} />
+          <Todolist todos={this.state.todos} switchStatus={this.switchStatus.bind(this)} deleteTodo={this.deleteTodo.bind(this)} />
+        </div>
     );
   }
 }
